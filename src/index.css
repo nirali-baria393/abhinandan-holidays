@@ -623,3 +623,10 @@ img { display: block; max-width: 100%; }
 .done-ic { width: 70px; height: 70px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #2563eb, #38bdf8); color: #fff; margin-bottom: 14px; box-shadow: 0 14px 30px rgba(37,99,235,.35); }
 .auth-back { margin-top: 12px; border: 0; background: none; color: var(--muted); cursor: pointer; font: 500 .9rem Inter, sans-serif; }
 @media (max-width: 860px) { .auth-card { grid-template-columns: 1fr; } .auth-art { min-height: 240px; } .auth-art h2 { font-size: 1.8rem; } .auth-art p, .auth-chips { display: none; } .auth-form { padding: 30px 22px; } }
+
+/* ===== brand logo ===== */
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.brand-img { width: 48px; height: 48px; border-radius: 50%; background: #fff; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.25); flex: none; }
+.brand-img.foot { width: 72px; height: 72px; margin-bottom: 12px; }
+.auth-art .brand-img { width: 52px; height: 52px; }
+@media (max-width: 480px) { .brand-img { width: 40px; height: 40px; } .logo { font-size: 1.05rem; gap: 8px; } }

@@ -9,6 +9,7 @@ export default function Footer() {
         <div className="container">
           <div className="cols">
             <div>
+              <img className="brand-img foot" src="/logo.jpg" alt="Abhinandan Holidays logo" />
               <h4>{site.name}</h4>
               <p>{site.tagline}</p>
             </div>

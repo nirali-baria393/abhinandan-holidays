@@ -1,4 +1,4 @@
-﻿import { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Eye, EyeOff, Lock, Mail, MessageCircle, Plane, FileCheck, Sparkles, User } from 'lucide-react'
 import { heroImage, site } from '../data/site'
@@ -24,7 +24,7 @@ export default function Login() {
         <aside className="auth-art">
           <Img src={heroImage} alt="Sunset beach" />
           <div className="auth-art-top">
-            <Link to="/" className="logo">Abhinandan <span>Holidays</span></Link>
+            <Link to="/" className="logo"><img className="brand-img" src="/logo.jpg" alt="" />Abhinandan <span>Holidays</span></Link>
           </div>
           <div className="auth-art-bottom">
             <h2>Plan less.<br />Travel <em>more.</em></h2>
