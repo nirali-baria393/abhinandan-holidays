@@ -603,61 +603,11 @@ img { display: block; max-width: 100%; }
 .tags-panel .btn { padding: 10px 24px; font-size: .9rem; }
 @media (max-width: 960px) { .ltags { row-gap: 64px; } }
 
-/* ===== login / sign up ===== */
-.auth { position: relative; min-height: 100vh; padding: 110px 16px 60px; display: grid; place-items: center; overflow: hidden; background: linear-gradient(135deg, #071c47 0%, #0a2a66 45%, #2563eb 100%); isolation: isolate; }
-.auth .blob { position: absolute; z-index: -1; border-radius: 50%; filter: blur(70px); opacity: .55; }
-.auth .b-1 { width: 420px; height: 420px; background: #38bdf8; top: -120px; right: -80px; animation: float 12s ease-in-out infinite; }
-.auth .b-2 { width: 360px; height: 360px; background: #8b5cf6; bottom: -140px; left: -100px; opacity: .4; animation: float 15s ease-in-out infinite reverse; }
-@keyframes float { 50% { transform: translate(30px, 24px) scale(1.08); } }
-.auth-card { width: min(1020px, 100%); display: grid; grid-template-columns: 1fr 1fr; background: #fff; border-radius: 32px; overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.4); }
-.auth-art { position: relative; min-height: 620px; color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 32px; }
-.auth-art > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.auth-art::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(7,28,71,.55) 0%, rgba(7,28,71,.1) 40%, rgba(7,28,71,.9) 100%); }
-.auth-art > div { position: relative; z-index: 2; }
-.auth-art .logo { color: #fff; font-size: 1.25rem; }
-.auth-art .logo span { color: #9fd0ff; }
-.auth-art h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 600; line-height: 1.1; }
-.auth-art h2 em { color: #9fd0ff; }
-.auth-art p { margin: 12px 0 18px; opacity: .88; }
-.auth-chips { display: flex; gap: 8px; flex-wrap: wrap; }
-.auth-chips span { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: var(--navy); font-size: .78rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
-.auth-chips svg { color: var(--accent); }
-.auth-form { padding: 40px 44px; display: flex; flex-direction: column; justify-content: center; }
-.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; background: var(--sand); border-radius: 999px; padding: 4px; margin-bottom: 26px; }
-.auth-tabs button { border: 0; background: transparent; padding: 10px; border-radius: 999px; font: 600 .9rem Inter, sans-serif; color: var(--muted); cursor: pointer; transition: .25s; }
-.auth-tabs button.on { background: #fff; color: var(--navy); box-shadow: 0 4px 14px rgba(10,42,102,.15); }
-.auth-form h1 { font-size: 2rem; color: var(--navy); }
-.auth-sub { color: var(--muted); margin: 6px 0 22px; font-size: .95rem; }
-.auth-form form { display: grid; gap: 14px; animation: fade .4s; }
-.af { display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--line); border-radius: 14px; padding: 0 16px; background: #fff; transition: border-color .2s, box-shadow .2s; }
-.af:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59,130,246,.15); }
-.af svg { color: var(--muted); flex: none; }
-.af:focus-within > svg:first-child { color: var(--teal); }
-.af input { flex: 1; min-width: 0; border: 0; outline: 0; padding: 15px 0; font: 400 .98rem Inter, sans-serif; color: var(--ink); background: transparent; }
-.eye { border: 0; background: none; cursor: pointer; display: grid; place-items: center; padding: 4px; }
-.auth-row { display: flex; justify-content: space-between; align-items: center; font-size: .88rem; }
-.auth-row a { color: var(--teal); font-weight: 600; }
-.check { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); cursor: pointer; }
-.check input { accent-color: var(--teal); width: 16px; height: 16px; }
-.auth-submit { justify-content: center; padding: 15px 24px; font-size: 1rem; background: linear-gradient(135deg, #2563eb, #1d4ed8); box-shadow: 0 12px 26px rgba(37,99,235,.35); width: 100%; }
-.auth-submit:hover { background: linear-gradient(135deg, #1d4ed8, #0a2a66); }
-.auth-or { display: flex; align-items: center; gap: 14px; margin: 20px 0 16px; color: var(--muted); font-size: .82rem; }
-.auth-or::before, .auth-or::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-.auth-wa { display: flex; align-items: center; justify-content: center; gap: 10px; border: 1.5px solid #25d366; color: #128c4a; border-radius: 14px; padding: 13px; font-weight: 600; transition: .2s; }
-.auth-wa:hover { background: #25d366; color: #fff; }
-.auth-help { margin-top: 22px; text-align: center; color: var(--muted); font-size: .85rem; }
-.auth-help a { color: var(--teal); font-weight: 600; }
-.auth-done { text-align: center; display: grid; justify-items: center; gap: 4px; animation: fade .4s; }
-.done-ic { width: 70px; height: 70px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #2563eb, #38bdf8); color: #fff; margin-bottom: 14px; box-shadow: 0 14px 30px rgba(37,99,235,.35); }
-.auth-back { margin-top: 12px; border: 0; background: none; color: var(--muted); cursor: pointer; font: 500 .9rem Inter, sans-serif; }
-@media (max-width: 860px) { .auth-card { grid-template-columns: 1fr; } .auth-art { min-height: 240px; } .auth-art h2 { font-size: 1.8rem; } .auth-art p, .auth-chips { display: none; } .auth-form { padding: 30px 22px; } }
-
 /* ===== brand logo ===== */
 .logo { display: inline-flex; align-items: center; gap: 10px; }
-.brand-img { width: 48px; height: 48px; border-radius: 50%; background: #fff; object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,.25); flex: none; }
-.brand-img.foot { width: 72px; height: 72px; margin-bottom: 12px; }
-.auth-art .brand-img { width: 52px; height: 52px; }
-@media (max-width: 480px) { .brand-img { width: 40px; height: 40px; } .logo { font-size: 1.05rem; gap: 8px; } }
+.brand-img { width: 54px; height: 54px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(0,0,0,.35)); flex: none; }
+.brand-img.foot { width: 96px; height: 96px; margin-bottom: 10px; }
+@media (max-width: 480px) { .brand-img { width: 46px; height: 46px; } .logo { font-size: 1.05rem; gap: 8px; } }
 
 /* ===== memories: compact one-screen layout + motion ===== */
 .memo { padding: 56px 0 44px; }

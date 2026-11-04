@@ -19,12 +19,11 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo"><img className="brand-img" src="/logo.jpg" alt="" />Abhinandan <span>Holidays</span></Link>
+        <Link to="/" className="logo"><img className="brand-img" src="/logo.png" alt="" />Abhinandan <span>Holidays</span></Link>
         <nav className={`nav ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
           {links.map(([to, label]) => (
             <NavLink key={to} to={to} end className={({ isActive }) => (isActive ? 'active' : '')}>{label}</NavLink>
           ))}
-          <NavLink to="/login">Login</NavLink>
           <Link to="/contact" className="btn sm">Plan my trip</Link>
           <div className="nav-foot">
             <a href={`tel:${site.phone.replace(/\s/g, '')}`}><Phone size={16} /> {site.phone}</a>
