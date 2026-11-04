@@ -1013,3 +1013,23 @@ img, video, svg { max-width: 100%; }
   body { padding-bottom: 0 !important; }
   .footer { padding-bottom: 92px !important; }
 }
+
+/* why-choose-us tags: still at rest, one soft settle on hover (stays until the mouse leaves) */
+.tag-wrap { animation: none !important; transition: transform .7s cubic-bezier(.22,1,.36,1), filter .7s cubic-bezier(.22,1,.36,1); will-change: transform; }
+.tag-wrap:hover { animation: none !important; transform: rotate(calc(var(--r, 0deg) * .3)) translateY(-3px); filter: drop-shadow(0 20px 22px rgba(10,42,102,.26)); }
+@media (hover: none) { .tag-wrap:hover { transform: rotate(var(--r, 0deg)); } }
+
+/* hero: larger two-line headline, small compact subtitle */
+.hero3 h1 { font-size: clamp(3rem, 6.6vw, 5.2rem); line-height: 1.04; letter-spacing: -.01em; }
+.hero3-text > p.hero-sub { margin: 10px 0 18px; font-size: .88rem; line-height: 1.5; max-width: 400px; opacity: .8; }
+@media (max-width: 860px) { .hero3 h1 { font-size: clamp(2.7rem, 11.5vw, 3.6rem); } }
+@media (max-width: 760px) { .hero3-text > p.hero-sub { margin: 8px 0 14px; font-size: .8rem; max-width: 300px; } }
+
+/* hero: even vertical rhythm between heading, subtitle, search and chips */
+.hero3-text { --gap: 22px; }
+.hero3-text h1 { margin: 0 0 var(--gap); }
+.hero3-text > p.hero-sub { margin: 0 0 var(--gap) !important; }
+.hero3 .searchbar { margin: 0 !important; }
+.hero3 .quick { margin-top: var(--gap) !important; }
+@media (max-width: 760px) { .hero3-text { --gap: 16px; } }
+@media (max-width: 760px) { .hero3 { padding-top: 92px; } }

@@ -33,9 +33,8 @@ export default function Home() {
       <section className="hero3">
         <div className="container hero3-grid">
           <div className="hero3-text">
-            <span className="kicker">Ankleshwar · Gujarat · Worldwide</span>
-            <h1>Your next story starts <em>here.</em></h1>
-            <p>Flights, visas and hand-crafted holidays, planned around you by the team at {site.name}.</p>
+            <h1>Your next story<br />starts <em>here.</em></h1>
+            <p className="hero-sub">Flights, visas and hand-crafted holidays, planned around you by the team at {site.name}.</p>
             <form className="searchbar" onSubmit={search}>
               <Search size={18} style={{ alignSelf: 'center', marginLeft: 12, color: '#62708a' }} />
               <input name="to" required placeholder="Where to?" />

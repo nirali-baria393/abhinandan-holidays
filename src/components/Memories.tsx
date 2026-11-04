@@ -30,7 +30,6 @@ export default function Memories() {
   }, [i, list.length])
 
   const live = place === 'All' ? cur.place : place
-  const count = (p: string) => (p === 'All' ? memories.length : memories.filter((m) => m.place === p).length)
 
   return (
     <div className="journal" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
@@ -39,7 +38,6 @@ export default function Memories() {
           <button key={p} className={`stamp ${place === p ? 'on' : ''} ${place === 'All' && live === p ? 'live' : ''}`} style={{ ['--rot' as string]: `${((n * 7) % 11) - 5}deg` }} onClick={() => pick(p)}>
             <b>{p === 'All' ? 'ALL' : codes[p] || p.slice(0, 3).toUpperCase()}</b>
             <span>{p === 'All' ? 'Trips' : p}</span>
-            <i>{count(p)}</i>
           </button>
         ))}
       </div>
