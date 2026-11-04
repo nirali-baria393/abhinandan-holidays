@@ -5,6 +5,8 @@ export const site = {
   tagline: 'Flights | Visas | Curated Domestic & International Holiday Packages',
   phone: '+91 83209 76229',
   whatsapp: '918320976229',
+  gst: '24CFLPG1459M1Z6',
+  facebook: 'https://www.facebook.com/p/Abhinandan-Holidays-100090506236579/',
   instagram: 'https://www.instagram.com/abhinandan_holidays36',
   // Address read from Instagram post images - please verify
   address: 'FF-06, Anand Vihar Complex, Sardar Park, GIDC, Ankleshwar 393002, Gujarat',
