@@ -2,13 +2,18 @@
 import { CalendarDays, MapPin, Plane, User, Users } from 'lucide-react'
 import { site } from '../data/site'
 
-// Sends the enquiry to WhatsApp so no backend is needed.
+// Saves the enquiry in Netlify Forms (Netlify dashboard > Forms) and opens WhatsApp with the same details.
 export default function EnquiryForm({ floating = false }: { floating?: boolean }) {
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const d = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>
     const msg = `Hi, I'd like a quote.\nName: ${d.name}\nFrom: ${d.from}\nTo: ${d.to}\nDate: ${d.date}\nTravellers: ${d.pax}`
     window.open(`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank')
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ 'form-name': 'enquiry', ...d }).toString(),
+    }).catch(() => {})
   }
   return (
     <form className={`planbar ${floating ? 'floating' : ''}`} onSubmit={submit}>
