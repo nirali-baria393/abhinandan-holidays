@@ -1033,3 +1033,36 @@ img, video, svg { max-width: 100%; }
 .hero3 .quick { margin-top: var(--gap) !important; }
 @media (max-width: 760px) { .hero3-text { --gap: 16px; } }
 @media (max-width: 760px) { .hero3 { padding-top: 92px; } }
+
+/* ===== mobile: simple boxes instead of luggage tags ===== */
+@media (max-width: 760px) {
+  .ltags { display: grid !important; grid-template-columns: 1fr 1fr; overflow: visible !important; margin: 22px 0 14px !important; padding: 0 !important; gap: 10px !important; scroll-snap-type: none !important; }
+  .ltags > .tag-wrap { flex: none !important; transform: none !important; filter: none !important; transition: none !important; }
+  .tag-wrap:hover { transform: none !important; filter: none !important; }
+  .tag-wrap .strap, .tag-wrap .hole, .ltag .hole { display: none !important; }
+  .ltag { clip-path: none !important; border-radius: 16px; padding: 14px 14px 16px !important; min-height: 0; height: 100%; box-shadow: 0 6px 16px rgba(10,42,102,.12); }
+  .ltag .n { top: 12px !important; right: 12px !important; }
+  .ltag .ic { margin: 0 0 8px !important; }
+  .tags-panel { padding: 24px 12px 22px !important; border-radius: 22px !important; }
+}
+@media (max-width: 380px) { .ltags { grid-template-columns: 1fr; } }
+
+/* why-choose panel: plain background, no dots */
+.tags-panel { background-image: none !important; }
+
+/* ===== mobile: "how it works" as a compact 2x2 grid, all four visible ===== */
+@media (max-width: 760px) {
+  .steps { display: grid !important; grid-template-columns: 1fr 1fr; overflow: visible !important; margin: 0 !important; padding: 0 !important; gap: 10px !important; scroll-snap-type: none !important; row-gap: 10px !important; }
+  .steps li { flex: none !important; padding: 12px 10px 14px !important; border-radius: 16px !important; box-shadow: 0 4px 12px rgba(10,42,102,.07) !important; }
+  .steps .big { font-size: 1.8rem; }
+  .steps .dot { width: 40px; height: 40px; margin: 2px auto 8px; box-shadow: 0 0 0 5px #fff, 0 6px 14px rgba(37,99,235,.3); }
+  .steps .dot svg { width: 17px; height: 17px; }
+  .steps h3 { font-size: .86rem; }
+  .steps p { font-size: .72rem; line-height: 1.35; margin-top: 4px; }
+}
+@media (max-width: 380px) { .steps { grid-template-columns: 1fr; } }
+
+/* adventures: no shadow, so no grey band is clipped around the cards */
+.act, .act:hover { box-shadow: none !important; }
+.act:hover { border-color: #93b4f5; }
+.acts { padding: 14px 8px 18px; }
