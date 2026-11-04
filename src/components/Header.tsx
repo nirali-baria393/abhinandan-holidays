@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
+import { site } from '../data/site'
 
 const links = [
   ['/', 'Home'],
@@ -11,6 +12,10 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
   return (
     <header className="header">
       <div className="container">
@@ -21,6 +26,10 @@ export default function Header() {
           ))}
           <NavLink to="/login">Login</NavLink>
           <Link to="/contact" className="btn sm">Plan my trip</Link>
+          <div className="nav-foot">
+            <a href={`tel:${site.phone.replace(/\s/g, '')}`}><Phone size={16} /> {site.phone}</a>
+            <span>{site.address}</span>
+          </div>
         </nav>
         <button className="menu-btn" aria-label="Menu" onClick={() => setOpen(!open)}>
           {open ? <X /> : <Menu />}

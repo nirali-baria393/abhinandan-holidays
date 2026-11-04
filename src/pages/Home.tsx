@@ -1,19 +1,14 @@
 import { FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Search, Plane, FileCheck, Sparkles, Globe2, Calendar, MapPin, Star, ChevronRight, MessageSquare, Route, BadgeCheck, Bike, Sailboat, TrainFront, Waves, Ship, Wind, ShieldCheck, Send, Phone } from 'lucide-react'
-import { trustImage, adventures, destinations, featured, heroImage, partners, press, reviews, site, themes, trust } from '../data/site'
+import { trustImage, adventures, destinations, featured, heroImage, partners, press, reviews, googleReviews, tripPhotos, site, themes, trust } from '../data/site'
+import Memories from '../components/Memories'
 import Img from '../components/Img'
 import Row from '../components/Row'
 import EnquiryForm from '../components/EnquiryForm'
 
 const wa = (text: string) => `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`
 const actIcons = { bike: Bike, boat: Sailboat, train: TrainFront, waves: Waves, ship: Ship, wind: Wind }
-
-const memoryPool = [
-  ...destinations.map((d) => ({ src: d.image, label: d.name })),
-  ...adventures.map((a) => ({ src: a.image, label: a.place })),
-]
-const memoryRows = [memoryPool.filter((_, i) => i % 2 === 0), memoryPool.filter((_, i) => i % 2 === 1)]
 
 export default function Home() {
   const [sel, setSel] = useState(0)
@@ -44,7 +39,7 @@ export default function Home() {
             <form className="searchbar" onSubmit={search}>
               <Search size={18} style={{ alignSelf: 'center', marginLeft: 12, color: '#62708a' }} />
               <input name="to" required placeholder="Where to?" />
-              <button className="btn" type="submit">Plan my trip</button>
+              <button className="btn" type="submit" aria-label="Plan my trip"><span className="lbl">Plan my trip</span><Send size={18} className="go" /></button>
             </form>
             <div className="quick">
               {['Vietnam', 'Bali', 'Kashmir', 'Kerala'].map((n) => (
@@ -52,7 +47,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="hero3-art">
+          <div className="hero3-art hide-m">
             <div className="arch a1"><Img src={heroImage} alt="Beach" /></div>
             <div className="arch a2"><Img src={destinations[0].image} alt="Vietnam" /></div>
             <div className="arch a3"><Img src={destinations.find((d) => d.name === 'Kashmir')!.image} alt="Kashmir" /></div>
@@ -63,7 +58,7 @@ export default function Home() {
         </div>
       </section>      <div className="container"><EnquiryForm floating /></div>
 
-      <div className="ticker"><div>{ticker}{ticker}</div></div>
+      <div className="ticker hide-m"><div>{ticker}{ticker}</div></div>
 
       <section className="section">
         <div className="container">
@@ -139,7 +134,8 @@ export default function Home() {
             <div style={{ textAlign: 'center' }}><Link to="/contact" className="btn">Talk to us</Link></div>
           </div>
         </div>
-      </section>      <section className="section">
+      </section>
+      <section className="section hide-m">
         <div className="container">
           <div className="section-head" >
             <span className="eyebrow">Holiday packages by theme</span>
@@ -234,7 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="section alt hide-m">
         <div className="container trust3">
           <div className="trust3-photo">
             <Img src={trustImage} alt="Happy travellers" />
@@ -268,7 +264,7 @@ export default function Home() {
             {reviews.map((r) => (
               <article className="ticket" key={r.trip}>
                 <div className="stub">
-                  <div className="photo"><Img src={r.photo} alt={r.name} /></div>
+                  <div className="photo"><Img src={tripPhotos[r.trip] ?? r.photo} alt={`${r.name}, guest photo`} /></div>
                   <b>{r.name}</b>
                   <small>{r.city}</small>
                   <span className="code">{r.trip.slice(0, 3).toUpperCase()}</span>
@@ -279,20 +275,27 @@ export default function Home() {
                     <div className="stars">{[0, 1, 2, 3, 4].map((i) => <Star key={i} size={15} fill="currentColor" />)}</div>
                   </div>
                   <p>{r.text}</p>
+                  {r.sample && <span className="sample-tag">Sample review</span>}
                 </div>
               </article>
             ))}
           </Row>
+          <div className="google">
+            <svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2.1 5-4.4 6.5v5.4h7.1c4.2-3.8 6.6-9.5 6.6-15.9z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.4c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.6C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.4c-.4-1.3-.7-2.7-.7-4.4s.3-3 .7-4.4v-5.6H4.5C3 17 2 20.400 2 24s1 7 2.500 10l7.300-5.600z"/><path fill="#EA4335" d="M24 10.600c3.200 0 6.100 1.100 8.400 3.300l6.300-6.300C34.900 4.100 29.900 2 24 2 15.500 2 8.100 6.900 4.500 14l7.300 5.600c1.700-5.200 6.500-9 12.200-9z"/></svg>
+            <div className="g-text">
+              <b>Google Reviews</b>
+              {googleReviews.rating && googleReviews.count ? (
+                <span className="g-rate"><strong>{googleReviews.rating.toFixed(1)}</strong>
+                  <span className="stars">{[0, 1, 2, 3, 4].map((i) => <Star key={i} size={16} fill="currentColor" />)}</span>
+                  <em>{googleReviews.count} reviews</em></span>
+              ) : (
+                <span className="g-rate"><em>Travelled with us? Tell others how it went.</em></span>
+              )}
+            </div>
+            <a className="btn" href={googleReviews.url} target="_blank" rel="noreferrer">{googleReviews.rating ? 'See all reviews' : 'Review us on Google'}</a>
+          </div>
           <a className="rv-cta center" href={wa('Hi, I travelled with you and want to share my experience.')} target="_blank" rel="noreferrer">Travelled with us? Share your experience →</a>        </div>
       </section>
-      {partners.length > 0 && (
-        <section className="section">
-          <div className="container">
-            <p className="dest-head">Our partners</p>
-            <div className="logos">{partners.map((p) => <img key={p.name} src={p.logo} alt={p.name} />)}</div>
-          </div>
-        </section>
-      )}
 
       {press.length > 0 && (
         <section className="section">
@@ -306,24 +309,38 @@ export default function Home() {
       )}
       <section className="section memo">
         <div className="container">
-          <div className="section-head" style={{ margin: '0 auto 32px', textAlign: 'center' }}>
+          <div className="section-head" style={{ margin: '0 auto 24px', textAlign: 'center' }}>
             <span className="eyebrow">Memories</span>
-            <h2>Moments from the road</h2>
+            <h2>Our guests, on the road</h2>
+            <p>Real snapshots from real trips. Tap a stamp to see who has been there.</p>
           </div>
+          <Memories />
         </div>
-        {[memoryRows[0], memoryRows[1]].map((row, ri) => (
-          <div className={`marquee ${ri ? 'rev' : ''}`} key={ri}>
-            <div className="track">
-              {[...row, ...row].map((m, i) => (
-                <figure className={`mem m${i % 4}`} key={i}>
-                  <Img src={m.src} alt={m.label} />
-                  <figcaption>{m.label}</figcaption>
-                </figure>
+      </section>
+      {partners.length > 0 && (
+        <section className="partners-band">
+          <div className="section-head" style={{ margin: '0 auto 30px', textAlign: 'center' }}>
+            <span className="eyebrow">Travel partners</span>
+            <h2>Our travel partners</h2>
+            <p>Trusted platforms and airlines behind every fare, stay and flight we book.</p>
+          </div>
+          <div className="partner-marquee">
+            <div className="partner-track">
+              {[...partners, ...partners].map((p, i) => (
+                <div className="ptag" key={i} style={{ ['--d' as string]: `${(i % 7) * -0.6}s` }}>
+                  <span className="pt-strap" />
+                  <div className="pt-card">
+                    <span className="pt-hole" />
+                    <img src={p.logo} alt={p.name} loading="lazy" />
+                    <b>{p.name}</b>
+                    <small>Travel partner</small>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-        ))}
-      </section>
+        </section>
+      )}
       <section className="finale-wrap">
         <div className="container">
           <div className="finale" style={{ backgroundImage: `url(${heroImage})` }}>

@@ -8,6 +8,7 @@ import Services from './pages/Services'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
+import MobileDock from './components/MobileDock'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -28,6 +29,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <MobileDock />
     </>
   )
 }
