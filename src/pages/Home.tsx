@@ -26,7 +26,7 @@ export default function Home() {
   }
   const list = destinations.filter((d) => filter === 'All' || d.region === filter)
   const cur = list[sel] ?? list[0]
-  const ticker = Array.from({ length: 12 }, (_, i) => <span key={i}>#AbhinandanHolidays</span>)
+  const ticker = Array.from({ length: 12 }, (_, i) => <span key={i}>On the way towards Delivering Quality Tourism.</span>)
 
   return (
     <>
@@ -310,7 +310,7 @@ export default function Home() {
         <div className="container">
           <div className="section-head" style={{ margin: '0 auto 24px', textAlign: 'center' }}>
             <span className="eyebrow">Memories</span>
-            <h2>Our guests, on the road</h2>
+            <h2>Happy Faces From Their Trips</h2>
             <p>Real snapshots from real trips. Tap a stamp to see who has been there.</p>
           </div>
           <Memories />

@@ -1135,3 +1135,5 @@ img, video, svg { max-width: 100%; }
 .dcredit { margin-top: 22px; font-size: .74rem; color: var(--muted); text-align: center; }
 .dside .btn.ghost { background: #fff; color: var(--navy); border: 1.5px solid #bcd0f7; }
 .dside .btn.ghost:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.ticker span::after { content: '\2022'; margin-left: 56px; opacity: .9; }
+.ticker span:first-child::before { content: '\2022'; margin-right: 56px; opacity: .9; }
