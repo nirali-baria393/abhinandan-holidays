@@ -1,0 +1,8 @@
+/memories/*
+  Cache-Control: public, max-age=604800
+/destinations/*.jpg
+  Cache-Control: public, max-age=604800
+/partners/*
+  Cache-Control: public, max-age=604800
+/logo.png
+  Cache-Control: public, max-age=604800
