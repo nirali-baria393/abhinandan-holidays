@@ -7,6 +7,7 @@ import Destinations from './pages/Destinations'
 import Services from './pages/Services'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import DestinationDetail from './pages/DestinationDetail'
 import MobileDock from './components/MobileDock'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/destinations" element={<Destinations />} />
+          <Route path="/destinations/:slug" element={<DestinationDetail />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
